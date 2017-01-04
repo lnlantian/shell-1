@@ -1,7 +1,5 @@
 #!/bin/bash
-#
 # Redis - this script starts and stops the redis server daemon
-#
 # chkconfig: - 85 15
 # description: Redis is an open source, BSD licensed, advanced key-value cache and store.
 #              It is often referred to as a data structure server since keys can contain strings, hashes, lists, sets, sorted sets, bitmaps and hyperloglogs.
@@ -15,10 +13,8 @@
 if [ -f /etc/sysconfig/redisd ]; then
     . /etc/sysconfig/redisd
 fi
-
 # Source networking configuration.
 . /etc/sysconfig/network
-
 # Check that networking is up.
 [ "$NETWORKING" = "no" ] && exit 0
 
@@ -41,7 +37,6 @@ start() {
     [ $RETVAL -eq 0 ] && touch $lockfile
     return $RETVAL
 }
-
 stop() {
     echo -n $"Stopping $PROG: "
     killproc $redisd -QUIT
